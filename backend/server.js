@@ -10,6 +10,10 @@ app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", process.env.frontendURL] }));
 app.use("/api/tasks", taskRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Home page");
+});
+
 const PORT = process.env.PORT || 5000;
 mongoose
   .connect(process.env.MONGODB_URI)
